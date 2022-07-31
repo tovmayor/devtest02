@@ -7,3 +7,5 @@ ADD index.html /var/www/html/
 CMD ["nginx", "-g", "daemon off;"]
 # Hello World, GIT test
 #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
+
+#from yc vm
