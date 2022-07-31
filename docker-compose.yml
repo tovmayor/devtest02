@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  devtest021:
+    image: devtest021
+    build:
+      context: .
+      dockerfile: ./Dockerfile

@@ -5,4 +5,5 @@ EXPOSE 80
 RUN rm -rf /var/www/html/* #remove in container
 ADD index.html /var/www/html/
 CMD ["nginx", "-g", "daemon off;"]
+# Hello World, GIT test
 
