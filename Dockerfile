@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 RUN apt-get update \
-&& apt-get install -y maven
+&& apt-get install -y maven \
+&& apt-get install wget
 
 #ENV CATALINA_HOME /usr/local/tomcat9
 #ENV PATH $CATALINA_HOME/bin:$PATH
