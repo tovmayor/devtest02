@@ -13,11 +13,8 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.
 && mvn package \
 && cp target/hello-1.0.war /usr/local/tomcat9/webapps
 
-#ENV PATH=/usr/share/tomcat9/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
 EXPOSE 8080
 CMD ["/usr/local/tomcat9/bin/catalina.sh", "run"]
 
-#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
 
 
