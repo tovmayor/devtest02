@@ -1,11 +1,8 @@
 FROM ubuntu:20.04
-RUN apt-get install -y wget
-RUN apt-get update \
-&& apt-get install -y maven
+RUN apt update
+RUN apt install -y wget
+RUN apt install -y maven
 
-#ENV CATALINA_HOME /usr/local/tomcat9
-#ENV PATH $CATALINA_HOME/bin:$PATH
-#WORKDIR $CATALINA_HOME
 RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz \
 && tar xvfz apache-tomcat-9.0.65.tar.gz \
 && mkdir -p /usr/local/tomcat9 \
