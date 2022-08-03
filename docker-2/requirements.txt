@@ -1,5 +1,5 @@
-Flask
-Jinja2
-Werkzeug
+flask
+jinja2
+werkzeug
 distribute
 wsgiref
