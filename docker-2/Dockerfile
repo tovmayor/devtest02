@@ -1,6 +1,5 @@
 FROM ubuntu:14.04
 RUN apt update
-RUN apt-upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
 ADD requirements.txt /tmp/
 RUN pip install -qr /tmp/requirements.txt
