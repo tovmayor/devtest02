@@ -1,11 +1,14 @@
-FROM ubuntu:20.04
-RUN apt update
+FROM ubuntu:18.04
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
 ADD requirements.txt /tmp/
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python3-all \
-&& apt-get install -y -q python3-pip
-RUN sleep 5
-RUN pip3 install -qr /tmp/requirements.txt
+RUN ls -l /tmp 
+RUN sleep 15
+RUN pip install -qr /tmp/requirements.txt
 ADD app.py /opt/webapp/
+RUN ls -l/opt/webapp/
+RUN sleep 15
+WORKDIR /opt/webapp
 
 EXPOSE 5000
-CMD ["python3", "/opt/webapp/app.py"]
+CMD ["python", "app.py"]
