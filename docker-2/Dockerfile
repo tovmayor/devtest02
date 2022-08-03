@@ -6,7 +6,7 @@ RUN ls -l /tmp
 RUN sleep 10
 RUN pip install -qr /tmp/requirements.txt
 ADD app.py /opt/webapp/
-RUN ls -l/opt/webapp/
+RUN ls -l/opt/webapp
 RUN sleep 10
 WORKDIR /opt/webapp
 
