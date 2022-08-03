@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:20.04
 RUN apt update
 ADD requirements.txt /tmp/
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
-RUN sleep 15
+RUN sleep 5
 #RUN pip install --index-url https://pypi.python.org/simple / --upgrade pip
 #RUN sleep 15
 RUN pip install -qr /tmp/requirements.txt
