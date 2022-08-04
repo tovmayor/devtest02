@@ -5,10 +5,7 @@ RUN apt update \
 WORKDIR /home/compile
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR /home/compile/boxfuse-sample-java-war-hello
-#VOLUME /home/compile/boxfuse-sample-java-war-hello
 RUN mvn package
-RUN mv /home/compile/boxfuse-sample-java-war-hello/target/hello-1.0.war /home/webapp
-RUN ls -l /home/webapp
-RUN sleep 10
+CMD ["mv", "/home/compile/boxfuse-sample-java-war-hello/target/hello-1.0.war", "/home/webapp/"]
 
 #CMD ["/bin/bash"]
