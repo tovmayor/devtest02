@@ -8,7 +8,7 @@ WORKDIR /home/compile/boxfuse-sample-java-war-hello
 #VOLUME /home/compile/boxfuse-sample-java-war-hello
 RUN mvn package
 RUN mv /home/compile/boxfuse-sample-java-war-hello/target/hello-1.0.war /home/webapp
-ls -l /home/webapp
-sleep 10
+RUN ls -l /home/webapp
+RUN sleep 10
 
 #CMD ["/bin/bash"]

@@ -1,16 +1,16 @@
-version: '3'
+version: '3.7'
 services:
   building:
     build:
       context: compile/
-        volumes:
-          - webapp_volume:/home/webapp/
+    volumes:
+      - webapp_volume:/home/webapp/
 
-#  prod:
-#    build:
-#      context: prod/
-#        volumes:
-#          - webapp_volume:/opt/tomcat/webapps
+  prod:
+    build:
+      context: prod/
+    volumes:
+      - webapp_volume:/opt/tomcat/webapps
 
 volumes:
   webapp_volume:
