@@ -26,7 +26,7 @@
 
   - name: copying war file to local host
     fetch:
-      src: /src/build/boxfuse-sample-java-war-hello package/target/hello-1.0.war
+      src: /src/build/boxfuse-sample-java-war-hello/target/hello-1.0.war
       dest: /home/andrew
 
 
