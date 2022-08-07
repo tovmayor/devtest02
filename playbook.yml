@@ -1,11 +1,10 @@
 ---
-- name: Install maven, clone repo, build package
+- name: Install maven, clone repo, build package, copy to localhost
   hosts: build
   become: yes
-
   
   tasks:
-        
+ 
   - name: Ensure git package is present
     apt:
      name: git
@@ -30,3 +29,18 @@
       dest: /home/andrew/
       flat: yes
 
+- name: prod host actions
+  hosts: prod
+  become: yes
+
+  tasks:
+ 
+  - name: Ensure tomcat package is present
+    apt:
+     name: tomcat9
+     state: present
+
+  - name: Copy war file to tomcat webapps directory
+    copy:
+     src: /home/andrew/hello-1.0.war
+     dest: /home/andrew/
