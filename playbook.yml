@@ -3,7 +3,14 @@
   hosts: build
   become: yes
 
+  
   tasks:
+        
+  - name: Ensure git package is present
+    apt:
+     name: git
+     state: present
+
   - name: Clone a repo from github
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
@@ -22,7 +29,4 @@
       src: /src/build/boxfuse-sample-java-war-hello package/target/hello-1.0.war
       dest: /home/andrew
 
-  - name: Ensure nginx service started
-    service:
-     name: nginx
-     state: started
+
