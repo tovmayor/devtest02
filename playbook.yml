@@ -37,7 +37,7 @@
  
   - name: Install OpenJDK
     apt:
-      name: openjdk-11-jre-headless
+      name: openjdk-17-jre
 
   - name: download tomcat server
     get_url:
