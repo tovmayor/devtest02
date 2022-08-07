@@ -1,0 +1,28 @@
+---
+- name: Install maven, clone repo, build package
+  hosts: build
+  become: yes
+
+  tasks:
+  - name: Clone a repo from github
+    git:
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /src/build
+      
+  - name: Ensure maven package is present
+    apt:
+     name: maven
+     state: present
+
+  - name: build package
+    command: mvn -f /src/build/boxfuse-sample-java-war-hello package
+
+  - name: copying war file to local host
+    fetch:
+      src: /src/build/boxfuse-sample-java-war-hello package/target/hello-1.0.war
+      dest: /home
+
+  - name: Ensure nginx service started
+    service:
+     name: nginx
+     state: started
