@@ -37,8 +37,8 @@
  
   - name: Install OpenJDK
     apt:
-      name: openjdk-17-jre-headless
-      state: present
+     name: openjdk-17-jre-headless
+     state: present
 
   - name: download tomcat server
     get_url:
