@@ -14,7 +14,7 @@
   - name: Clone a repo from github
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-      dest: /src/build
+      dest: /src/build/boxfuse-sample-java-war-hello
       
   - name: Ensure maven package is present
     apt:
