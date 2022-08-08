@@ -6,7 +6,7 @@ ADD app.py /opt/webapp/
 WORKDIR /opt/webapp
 
 EXPOSE 5000
-CMD ["python", "app.py"]
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python3-all \
 && apt-get install -y -q python3-pip
 RUN sleep 5
