@@ -1,0 +1,31 @@
+---
+- name: Install nginx
+  hosts: all
+  become: true
+
+
+  vars:
+   source_folder: ./
+   dest_folger: /var/www/html
+
+
+  tasks:
+  - name: Ensure nginx package is present
+    apt:
+      name: nginx
+      state: present
+
+  - name: wtf templating index.html
+    template:
+      src={{ source_folder }}/index.j2
+      dest={{ dest_folder }}/index.html
+      mode 0555
+    notify: 
+       - restart nginx
+
+
+  handlers: 
+  - name: restart nginx
+    service: name=nginx state=restart
+
+     
