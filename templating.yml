@@ -5,7 +5,7 @@
 
   vars:
    source_folder: ./
-   dest_folger: /var/www/html
+   dest_folder: /var/www/html
 
 
   tasks:
