@@ -15,10 +15,7 @@
       state: present
 
   - name: wtf templating index.html
-    template:
-      src={{ source_folder }}/index.j2
-      dest={{ dest_folder }}/index.html
-      mode 0555
+    template: src={{ source_folder }}/index.j2 dest={{ dest_folder }}/index.html mode 0555
     notify: 
        - restart nginx
 
