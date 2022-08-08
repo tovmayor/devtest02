@@ -1,0 +1,16 @@
+- name: Install nginx
+  hosts: prod
+  become: true
+
+  tasks:
+  - name: Ensure nginx package is present
+    apt:
+     name: nginx
+     state: present
+
+
+  - name: Ensure nginx service started
+    service:
+     name: nginx
+     state: started
+
