@@ -3,7 +3,6 @@
   hosts: all
   become: true
 
-
   vars:
    source_folder: ./
    dest_folger: /var/www/html
