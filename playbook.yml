@@ -1,7 +1,7 @@
 ---
 - name: Install maven, clone repo, build package, copy to localhost
   hosts: build
-  become: yes
+  become: true
   
   tasks:
  
@@ -32,7 +32,7 @@
 
 - name: prod host actions
   hosts: prod
-  become: yes
+  become: true
 
   tasks:
  
