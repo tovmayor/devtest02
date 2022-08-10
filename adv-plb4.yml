@@ -24,3 +24,9 @@
 
   - debug: 
       msg: "{{ all_msg }}"
+
+  - set_fact: 
+      oses: "{{ ansible_os_family }} {{ ansible_distribution }}"
+
+  - debug:
+      var: oses
