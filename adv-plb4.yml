@@ -1,0 +1,26 @@
+---
+- name: Variables 
+  hosts: all
+
+  vars:
+    message1: Hello
+    message2: World
+    secret  : password
+
+  tasks:
+
+  - name: Print secret variable
+    debug:
+      var: secret
+
+  - debug: 
+      msg: 'Secret word is... {{ secret }}'
+
+  - debug:
+      msg: 'Vladelec etogo servera: {{ owner }}'
+
+  - set_fact: 
+      all_msg: "{{ message1 }} {{ owner }}"
+
+  - debug: 
+      msg: "{{ all_msg }}"

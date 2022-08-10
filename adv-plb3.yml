@@ -1,0 +1,24 @@
+---
+- name: install apache &upload web page
+  hosts: prod
+  become: true
+
+  vars:
+    source_files: '/home/andrew/index.html'
+    dest_files: '/var/www/html'
+
+  tasks:
+  - name: apache apt
+    apt: name=apache2 state=latest
+
+
+  - name: copy homepage to server
+    copy: src={{ source_files }} dest={{ dest_files }} mode=0644
+    notify: restart apache  
+
+  - name: start webserver
+    service: name=apache2 state=started enabled=yes
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
