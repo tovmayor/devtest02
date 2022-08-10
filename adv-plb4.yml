@@ -30,3 +30,9 @@
 
   - debug:
       var: oses
+
+  - shell: uptime
+    register: result
+
+  - debug:
+      var: result.stdout
