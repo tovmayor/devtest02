@@ -8,6 +8,10 @@
     dest_files: '/var/www/html'
 
   tasks:
+  - name: Check&print linux version
+    debug:
+      var: ansible_os_family
+
   - name: apache apt
     apt: name=apache2 state=latest
 
