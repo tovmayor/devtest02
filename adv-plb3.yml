@@ -9,7 +9,7 @@
 
   tasks:
   - name: Check & print Linux version
-    
+    debug: var=ansible_os_family    
 
   - name: apache apt Debian
     apt: name=apache2 state=latest
