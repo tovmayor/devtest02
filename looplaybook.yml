@@ -4,7 +4,7 @@
   become: true
 
   tasks:
-  - name: hello 4 all
+  - name: hello 4 all Loop sample
     debug: msg="Hello {{ item }}"
     with_items: 
       - "Mens"
@@ -12,4 +12,11 @@
       - "Binary"
       - "NoSex"
 
-      
+  - name: Loop Until sample
+    shell: echo -n Z >> myfile.txt && cat myfile.txt
+    register: output
+    delay: 3
+    retries: 10
+    until: output.stdout.find("ZZZZZ") == false
+
+    
