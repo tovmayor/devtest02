@@ -19,4 +19,5 @@
     retries: 10
     until: output.stdout.find("ZZZZZ") == false
 
-    
+  - name: print final output
+    debug: var=output.stdout
