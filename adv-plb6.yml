@@ -30,10 +30,11 @@
 
   
   - name: copy homepage to server
-    copy: src="{{ source_folder }}/{{ item }}" dest={{ dest_folder }} mode=0644
-    loop: 
-      - "index.html"
-      - "hello.txt"
+    copy: src={{ item }} dest={{ dest_folder }} mode=0644
+    with_fileglob: "{{ source_folder }}/*.txt"
+#    loop: 
+#      - "index.html"
+#      - "hello.txt"
     notify:
       - restart apache Debian
       - restart httpd RedHat    
