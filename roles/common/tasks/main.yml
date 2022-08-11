@@ -1,10 +1,2 @@
 ---
 # tasks file for common
-- name: install many packages
-  apt: name={{item}} state=present
-  with_items:
-       - tree
-       - mc
-       - htop
-       - ncdu
-       - links
