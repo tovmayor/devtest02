@@ -8,21 +8,11 @@
     dest_files: '/var/www/html'
 
   tasks:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - name: Check&print linux version
-    debug:
-      var: ansible_os_family
-
-  - name: apache apt
-=======
-=======
+ 
   - name: Check & print Linux version
     debug: var=ansible_os_family    
 
->>>>>>> 1cea9cdba07e918e925a1f1cbbfe56a7bf886680
   - name: apache apt Debian
->>>>>>> 5f27a7d7dd1525de0ff6476c1c8bce91cea5ff8e
     apt: name=apache2 state=latest
     update-cache: yes
     when: ansible_os_family == "RedHat"
