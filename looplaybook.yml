@@ -1,0 +1,15 @@
+---
+- name: loops playbook
+  hosts: prod
+  become: true
+
+  tasks:
+  - name: hello 4 all
+    debug: msg="Hello {{ item }}"
+    with_items: 
+      - "Mens"
+      - "Womens"
+      - "Binary"
+      - "NoSex"
+
+      
