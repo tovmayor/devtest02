@@ -18,7 +18,7 @@
 =======
 =======
   - name: Check & print Linux version
-    
+    debug: var=ansible_os_family    
 
 >>>>>>> 1cea9cdba07e918e925a1f1cbbfe56a7bf886680
   - name: apache apt Debian
