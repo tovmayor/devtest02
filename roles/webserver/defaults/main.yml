@@ -1,4 +1,4 @@
 ---
 # defaults file for webserver
-dest_folder: /var/www/index.html
 
+dest_folder: "/var/www/html"

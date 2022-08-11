@@ -1,2 +1,15 @@
 ---
 # tasks file for webserver
+- name: nginx package
+  apt: name=nginx state=latest update-cache=yes
+
+- name: copy index.html
+  copy: 
+    src: "index.html"
+    dest: "{{ dest_folder }}/index.html"
+    mode: 0555
+  notify: 
+    - restart nginx
+
+
+
