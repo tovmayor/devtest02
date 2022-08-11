@@ -15,7 +15,7 @@
   - block: # FOR DEBIAN
       - name: apache apt Debian
         apt: name=apache2 state=latest
-        update_cache: yes
+        #update_cache: yes
 
       - name: copy homepage to server
         copy: src={{ source_files }} dest={{ dest_files }} mode=0644
@@ -28,7 +28,7 @@
   - block: # FOR RedHat
       - name: apache yum RedHat
         yum: name=httpd state=latest
-        update-cache: yes
+        #update-cache: yes
 
       - name: copy homepage to server
         copy: src={{ source_files }} dest={{ dest_files }} mode=0644
