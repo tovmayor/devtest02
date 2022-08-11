@@ -8,13 +8,23 @@
     dest_files: '/var/www/html'
 
   tasks:
+<<<<<<< HEAD
   - name: Check&print linux version
     debug:
       var: ansible_os_family
 
   - name: apache apt
+=======
+  - name: apache apt Debian
+>>>>>>> 5f27a7d7dd1525de0ff6476c1c8bce91cea5ff8e
     apt: name=apache2 state=latest
+    update-cache: yes
+    when: ansible_os_family == "RedHat"
 
+  - name: apache RedHat
+    yum: name=httpd state=latest
+    update-cache: yes
+    when: ansible_os_family == "Debian"
 
   - name: copy homepage to server
     copy: src={{ source_files }} dest={{ dest_files }} mode=0644
