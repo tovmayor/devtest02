@@ -7,7 +7,7 @@
     update_cache: yes
   with_items:
     - "tomcat9"
-    - "openjdk-17-jre-headless"
+    - "openjdk-11-jre-headless"
 
 # - name: download tomcat server
 #   get_url:
