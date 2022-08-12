@@ -12,24 +12,10 @@
 - name: start tomcat
   service: name="tomcat9" state=started    
 
-# - name: download tomcat server
-#   get_url:
-#     url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
-#     dest: /usr/local
-
-# - name: extract tomcat packages
-#   unarchive:
-#     src: /usr/local/apache-tomcat-9.0.65.tar.gz
-#     dest: /usr/local
-#     remote_src: yes
-
 - name: Copy war file to tomcat webapps directory
   copy:
-    src: /home/andrew/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps/
+    src: "{{ local_folder }}/hello-1.0.war"
+    dest: "{{ tomcat_webapp_folder }}"
   notify:
     - restart tomcat
-
-# - name: start tomcat service
-#   service: nohup /usr/local/apache-tomcat-9.0.65/bin/startup.sh
 

@@ -22,5 +22,5 @@
 - name: copying war file to local host
   fetch:
     src: "{{ proj_path }}/{{ proj_name }}/target/{{ war_name }}"
-    dest: /home/andrew/
+    dest: "{{ local_folder }}/"
     flat: yes

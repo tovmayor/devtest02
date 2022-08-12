@@ -1,14 +1,26 @@
 ---
-# - name: build server making
-#   hosts: build
-#   become: true
+- name: build server making
+    hosts: build
+    become: true
 
-#   roles:
-#     - build
+  vars:  
+    proj_name: "boxfuse-sample-java-war-hello"
+    git_proj_url: "https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
+    proj_path: "/src/build"
+    war_name: "hello-1.0.war"
+    local_folder: "/home/andrew"
+  
+  roles:
+    - build
     
-- name: the prod must flow
-  hosts: prod
-  become: true
 
+- name: the prod must flow
+    hosts: prod
+    become: true
+
+  vars:  
+    local_folder: "/home/andrew/"
+    tomcat_webapp_folder: "/var/lib/tomcat9/webapps/"
+  
   roles:
     - prod

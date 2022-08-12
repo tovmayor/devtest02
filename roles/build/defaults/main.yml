@@ -1,6 +1,6 @@
 ---
 # defaults file for build
-proj_name: "boxfuse-sample-java-war-hello"
-git_proj_url: "https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
-proj_path: "/src/build"
-war_name: "hello-1.0.war"
+# proj_name: "boxfuse-sample-java-war-hello"
+# git_proj_url: "https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
+# proj_path: "/src/build"
+# war_name: "hello-1.0.war"
