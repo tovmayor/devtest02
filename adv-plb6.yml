@@ -4,7 +4,7 @@
   become: true
 
   vars:
-    source_folder: '/home/andrew'
+    source_folder: '/home/andrew/devtest02/'
     dest_folder: '/var/www/html'
 
   tasks:
@@ -29,14 +29,13 @@
     when: ansible_os_family == "RedHat"
 
   - name: Generate html from j2
-    template: src="{{ source_folder }}/index.html" dest={{ dest_folder }} mode=0555
+    template: src="{{ source_folder }}/index_adv.j2" dest="{{ dest_folder }}/index.html" mode=0555
     notify: 
       - restart apache Debian
       - restart httpd RedHat    
 
 #  - name: copy homepage to server
 #    copy: src={{ item }} dest={{ dest_folder }} mode=0644 #for fileglob
-#    copy: src={{ item }} dest={{ dest_folder }} mode=0644
 #    with_fileglob: "{{ source_folder }}/*.txt" #for fileglob
 #    loop: 
 #      - "index.html"
