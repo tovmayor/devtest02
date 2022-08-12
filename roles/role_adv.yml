@@ -4,5 +4,5 @@
   become: true
 
   roles:
-   - deploy_apache
+   - { role: deploy_apache, when: ansible_system == "Lunux" }
    
