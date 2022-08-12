@@ -1,7 +1,7 @@
 ---
 - name: build server making
-    hosts: build
-    become: true
+  hosts: build
+  become: true
 
   vars:  
     proj_name: "boxfuse-sample-java-war-hello"
@@ -15,8 +15,8 @@
     
 
 - name: the prod must flow
-    hosts: prod
-    become: true
+  hosts: prod
+  become: true
 
   vars:  
     local_folder: "/home/andrew/"
