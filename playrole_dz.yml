@@ -1,8 +1,14 @@
 ---
-- name: build server making
-  hosts: build
+# - name: build server making
+#   hosts: build
+#   become: true
+
+#   roles:
+#     - build
+    
+- name: prod must flow
+  hosts: prod
   become: true
 
   roles:
-    - build
-    
+    - prod
