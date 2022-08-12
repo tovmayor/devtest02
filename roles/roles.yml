@@ -1,6 +1,6 @@
 ---
 - name: web-server config
-  hosts: prod
+  hosts: build
   become: true
 
   roles:
