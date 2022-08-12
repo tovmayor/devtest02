@@ -1,2 +1,26 @@
 ---
 # tasks file for build
+- name: Ensure git package is present
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
+- name: Clone a repo from github
+  git:
+    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    dest: /src/build/boxfuse-sample-java-war-hello
+      
+- name: Ensure maven package is present
+  apt:
+    name: maven
+    state: present
+
+- name: build package
+  command: mvn -f /src/build/boxfuse-sample-java-war-hello package
+
+- name: copying war file to local host
+  fetch:
+    src: /src/build/boxfuse-sample-java-war-hello/target/hello-1.0.war
+    dest: /home/andrew/
+    flat: yes

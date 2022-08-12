@@ -1,0 +1,8 @@
+---
+- name: build server making
+  hosts: build
+  become: true
+
+  roles:
+    - build
+    
