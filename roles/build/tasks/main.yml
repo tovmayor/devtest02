@@ -9,7 +9,7 @@
 - name: Clone a repo from github
   git:
     repo: "{{ git_proj_url }}"
-    dest: /src/build/boxfuse-sample-java-war-hello
+    dest: "{{ proj_path }}/{{ proj_name }}"
       
 - name: Ensure maven package is present
   apt:
@@ -17,10 +17,10 @@
     state: present
 
 - name: build package
-  command: mvn -f /src/build/boxfuse-sample-java-war-hello package
+  command: mvn -f "{{ proj_path }}/{{ proj_name }}" package
 
 - name: copying war file to local host
   fetch:
-    src: /src/build/boxfuse-sample-java-war-hello/target/hello-1.0.war
+    src: "{{ proj_path }}/{{ proj_name }}/target/{{ war_name }}"
     dest: /home/andrew/
     flat: yes
