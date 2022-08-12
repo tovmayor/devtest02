@@ -2,12 +2,12 @@
 # tasks file for prod
 - name: tomcat & openjdk-17-jre-headless must be
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
-    - tomcat9
-    - openjdk-17-jre-headless
+    - "tomcat9"
+    - "openjdk-17-jre-headless"
 
 # - name: download tomcat server
 #   get_url:
