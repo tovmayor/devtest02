@@ -1,0 +1,8 @@
+---
+- name: web-server apache config
+  hosts: prod
+  become: true
+
+  roles:
+   - deploy_apache
+   
