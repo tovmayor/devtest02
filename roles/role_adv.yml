@@ -4,6 +4,6 @@
   become: true
 
   roles:
-    - { role: deploy_apache, when: "ansible_system == 'Lunux'" }
-#    - deploy_apache
+#    - { role: deploy_apache, when: "ansible_system == 'Lunux" }
+    - deploy_apache
 
