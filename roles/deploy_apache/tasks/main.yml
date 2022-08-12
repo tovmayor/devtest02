@@ -1,8 +1,5 @@
 ---
 # tasks file for deploy_apache
-- name: Check & print Linux version
-  debug: var=ansible_os_family    
-
 - block: # FOR DEBIAN
     - name: apache apt Debian
       apt: name=apache2 state=latest update_cache=yes
