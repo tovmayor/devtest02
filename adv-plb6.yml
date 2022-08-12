@@ -28,16 +28,22 @@
         service: name=httpd state=started enabled=yes
     when: ansible_os_family == "RedHat"
 
-  
-  - name: copy homepage to server
-    copy: src={{ item }} dest={{ dest_folder }} mode=0644
-    with_fileglob: "{{ source_folder }}/*.txt"
+  - name: Generate html from j2
+    template: src="{{ source_folder }}/index.html" dest={{ dest_folder }} mode=0555
+    notify: 
+      - restart apache Debian
+      - restart httpd RedHat    
+
+#  - name: copy homepage to server
+#    copy: src={{ item }} dest={{ dest_folder }} mode=0644 #for fileglob
+#    copy: src={{ item }} dest={{ dest_folder }} mode=0644
+#    with_fileglob: "{{ source_folder }}/*.txt" #for fileglob
 #    loop: 
 #      - "index.html"
 #      - "hello.txt"
-    notify:
-      - restart apache Debian
-      - restart httpd RedHat    
+#    notify:
+#      - restart apache Debian
+#      - restart httpd RedHat    
   
   
   
