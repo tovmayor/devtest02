@@ -1,6 +1,6 @@
 ---
 # tasks file for prod
-- name: tomcat & openjdk-17-jre-headless must be
+- name: tomcat & openjdk-11-jre-headless must be
   apt:
     name: "{{ item }}"
     state: present

@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 RUN apt update
 RUN apt install -y wget
 RUN apt install -y maven
+RUN apt install openjdk-11-jre-headless
 
 RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz \
 && tar xvfz apache-tomcat-9.0.65.tar.gz \
