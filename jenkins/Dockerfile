@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
-RUN apt update
+RUN apt-get update
 
 #RUN apt install -y openjdk-11-jre-headless
-RUN apt install -y maven
+RUN apt-get install -y maven
 
 
 # Install docker
