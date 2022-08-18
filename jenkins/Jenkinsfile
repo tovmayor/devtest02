@@ -25,7 +25,7 @@ pipeline {
                 sh 'docker --version'
                 sh 'ls -l'                
                 sh 'ls -l myboxfuse/target/'
-                sh 'docker build -f myboxfuse/DockerProd -t 84.201.177.64:8123/prod_dind:v1.0 '
+                sh 'docker build -t 84.201.177.64:8123/prod_dind:v1.0 -f myboxfuse/DockerProd .'
                 sh 'ls -l'
                 
             }
