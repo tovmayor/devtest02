@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image '84.201.177.64:8123/build_dind:v1.1' }
+        docker { 
+            image '84.201.177.64:8123/build_dind:v1.1'
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock' 
+            }
     }
     stages {
         stage('Clone git repo myboxfuse with Java project and Dockerfile for prod image') {
