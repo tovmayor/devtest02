@@ -1,25 +1,32 @@
 pipeline {
     agent {
-        docker { image '84.201.177.64:8123/build_dind:v1.0' }
+        docker { image '84.201.177.64:8123/build_dind:v1.1' }
     }
     stages {
         stage('Clone git repo myboxfuse with Java project and Dockerfile for prod image') {
             steps {
+                sh 'rm -rf myboxfuse'
                 sh 'git clone https://github.com/tovmayor/myboxfuse.git'
                 sh 'ls -l'
+                sh 'ls -l myboxfuse/'
             }
         }
         stage('Build jar') {
             steps {
-                sh 'cd myboxfuse'
-                sh 'mvn package'
                 sh 'ls -l'
+                sh 'pwd'
+                sh 'mvn -f ./myboxfuse package'
+
             }
         }
         stage('Make docker image') {
             steps {
-                sh 'ls -l'
+                sh 'ls -l /'
                 sh 'docker --version'
+                sh 'ls -l'                
+                sh 'ls -l myboxfuse/target/'
+                sh 'docker build -f myboxfuse/DockerProd -t 84.201.177.64:8123/prod_dind:v1.0 '
+                sh 'ls -l'
                 
             }
         }
