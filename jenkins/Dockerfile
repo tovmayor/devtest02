@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 RUN apt-get update
 
-RUN apt install -y git
+RUN apt=get install -y git
 RUN apt-get install -y maven
 
 
