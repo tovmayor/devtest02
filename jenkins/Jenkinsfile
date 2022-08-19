@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image '84.201.177.64:8123/build_dind:v1.1'
+            image '51.250.101.254:8123/build_dind:v1.2'
             args '-u root -v /var/run/docker.sock:/var/run/docker.sock' 
             }
     }
@@ -10,26 +10,17 @@ pipeline {
             steps {
                 sh 'rm -rf myboxfuse'
                 sh 'git clone https://github.com/tovmayor/myboxfuse.git'
-                sh 'ls -l'
-                sh 'ls -l myboxfuse/'
             }
         }
         stage('Build jar') {
             steps {
-                sh 'ls -l'
-                sh 'pwd'
                 sh 'mvn -f ./myboxfuse package'
-
             }
         }
         stage('Make docker image') {
             steps {
-                sh 'ls -l /'
-                sh 'docker --version'
-                sh 'ls -l'                
-                sh 'ls -l myboxfuse/target/'
-                sh 'docker build -t 84.201.177.64:8123/prod_dind:v1.0 -f myboxfuse/DockerProd .'
-                sh 'ls -l'
+                sh 'docker build -t 51.250.101.254:8123/prod_dind:v1.2 -f myboxfuse/DockerProd .'
+                sh 'docker push 51.250.101.254:8123/prod_dind:v1.2'
                 
             }
         }
