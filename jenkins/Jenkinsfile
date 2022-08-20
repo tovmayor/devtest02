@@ -1,28 +1,30 @@
 pipeline {
-    agent {
-        docker { 
-            image '51.250.101.254:8123/build_dind:v1.2'
-            args '-u root -v /var/run/docker.sock:/var/run/docker.sock' 
-            }
-    }
+    agent none
     stages {
-        stage('Clone git repo myboxfuse with Java project and Dockerfile for prod image') {
+        stage ('Clone git repo, build war and prod docker image, push to nexus') {
+            agent {
+                docker { 
+                    image '84.252.136.62:8123/build_dind:v1.2'
+                    args '-u root -v /var/run/docker.sock:/var/run/docker.sock' 
+                }
+            }
+
             steps {
                 sh 'rm -rf myboxfuse'
                 sh 'git clone https://github.com/tovmayor/myboxfuse.git'
-            }
-        }
-        stage('Build jar') {
-            steps {
                 sh 'mvn -f ./myboxfuse package'
-            }
-        }
-        stage('Make docker image') {
-            steps {
-                sh 'docker build -t 51.250.101.254:8123/prod_dind:v1.2 -f myboxfuse/DockerProd .'
-                sh 'docker push 51.250.101.254:8123/prod_dind:v1.2'
+                sh 'docker build -t 84.252.136.62:8123/prod_dind:v1.2 -f myboxfuse/DockerProd .'
+                sh 'docker push 84.252.136.62:8123/prod_dind:v1.2'
                 
             }
         }
+        stage ('Run prod container') {
+            agent any
+            steps {
+                sh '''ssh root@51.250.24.63 << EOF
+                docker run -d 84.252.136.62:8123/prod_dind:v1.2
+                EOF'''
+            }
+        }        
     }
 }
