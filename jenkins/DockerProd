@@ -11,4 +11,4 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.
 ADD ./myboxfuse/target/hello-1.0.war /usr/local/tomcat9/webapps
 
 EXPOSE 8080
-CMD ["/usr/local/tomcat9/bin/catalina.sh", "run"]
+CMD ["/usr/local/tomcat9/bin/catalina.sh","run"]
